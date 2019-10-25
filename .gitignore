@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/StoreParser/.vs/StoreParser/v16
+/StoreParser/StoreParser/obj
+/StoreParser/HtmlParser/obj
