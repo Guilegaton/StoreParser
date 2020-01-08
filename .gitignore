@@ -5,3 +5,7 @@
 /StoreParser/.vs/StoreParser/v16
 /StoreParser/StoreParser/obj
 /StoreParser/HtmlParser/obj
+/StoreParser/HtmlParser/bin/Debug/netstandard2.0
+/StoreParser/.vs/StoreParser/DesignTimeBuild
+/StoreParser/StoreParser/bin/Debug/netcoreapp3.0
+/StoreParser/HtmlParser/HtmlParser.csproj.user
