@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using HtmlParser.Builders.Blocks;
+﻿using HtmlParser.Builders.Blocks;
 using HtmlParser.Interfaces;
 using HtmlParser.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace HtmlParser.Builders
 {
@@ -19,42 +19,6 @@ namespace HtmlParser.Builders
         #region Public Methods
 
         #region Add Blocks
-
-        /// <summary>
-        /// Add a new builder for the nodes with a 'div' tag to the subnodes tree
-        /// </summary>
-        public virtual INodeBuilder<TModel> AddContainerBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
-        {
-            var nodeBuilder = new ContainerBlockBuilder<TModel>();
-            var result = nodeFunc.Invoke(nodeBuilder);
-            _nodes.Add(result);
-
-            return this;
-        }
-
-        /// <summary>
-        /// Add a new builder for the nodes with a 'a' tag to the subnodes tree
-        /// </summary>
-        public virtual INodeBuilder<TModel> AddLinkBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
-        {
-            var nodeBuilder = new LinkBlockBuilder<TModel>();
-            var result = nodeFunc.Invoke(nodeBuilder);
-            _nodes.Add(result);
-
-            return this;
-        }
-
-        /// <summary>
-        /// Add a new builder for the nodes with a 'p' tag to the subnodes tree
-        /// </summary>
-        public virtual INodeBuilder<TModel> AddParagraphBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
-        {
-            var nodeBuilder = new ParagraphBlockBuilder<TModel>();
-            var result = nodeFunc.Invoke(nodeBuilder);
-            _nodes.Add(result);
-
-            return this;
-        }
 
         /// <summary>
         /// Add a new builder for the nodes with a 'abbr' tag to the subnodes tree
@@ -153,59 +117,23 @@ namespace HtmlParser.Builders
         }
 
         /// <summary>
-        /// Add a new builder for the nodes with a 'b' tag to the aside tree
-        /// </summary>
-        public virtual INodeBuilder<TModel> AddBoldTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
-        {
-            var nodeBuilder = new BoldTextBlockBuilder<TModel>();
-            var result = nodeFunc.Invoke(nodeBuilder);
-            _nodes.Add(result);
-
-            return this;
-        }
-
-        /// <summary>
-        /// Add a new builder for the nodes with a 'bdi' tag to the aside tree
-        /// </summary>
-        public virtual INodeBuilder<TModel> AddSeparateTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
-        {
-            var nodeBuilder = new SeparateTextBlockBuilder<TModel>();
-            var result = nodeFunc.Invoke(nodeBuilder);
-            _nodes.Add(result);
-
-            return this;
-        }
-
-        /// <summary>
-        /// Add a new builder for the nodes with a 'bdo' tag to the aside tree
-        /// </summary>
-        public virtual INodeBuilder<TModel> AddTextDirectionBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
-        {
-            var nodeBuilder = new TextDirectionBlockBuilder<TModel>();
-            var result = nodeFunc.Invoke(nodeBuilder);
-            _nodes.Add(result);
-
-            return this;
-        }
-
-        /// <summary>
-        /// Add a new builder for the nodes with a 'blockquote' tag to the aside tree
-        /// </summary>
-        public virtual INodeBuilder<TModel> AddQuoteBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
-        {
-            var nodeBuilder = new QuoteBlockBuilder<TModel>();
-            var result = nodeFunc.Invoke(nodeBuilder);
-            _nodes.Add(result);
-
-            return this;
-        }
-
-        /// <summary>
         /// Add a new builder for the nodes with a 'body' tag to the aside tree
         /// </summary>
         public virtual INodeBuilder<TModel> AddBodyBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
         {
             var nodeBuilder = new BodyBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'b' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddBoldTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new BoldTextBlockBuilder<TModel>();
             var result = nodeFunc.Invoke(nodeBuilder);
             _nodes.Add(result);
 
@@ -297,6 +225,30 @@ namespace HtmlParser.Builders
         }
 
         /// <summary>
+        /// Add a new builder for the nodes with a 'div' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddContainerBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new ContainerBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a custom tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddCustomBlock(string blockName, Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new CustomBlockBuilder<TModel>(blockName);
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
         /// Add a new builder for the nodes with a 'datalist' tag to the aside tree
         /// </summary>
         public virtual INodeBuilder<TModel> AddDatalistBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
@@ -309,19 +261,702 @@ namespace HtmlParser.Builders
         }
 
         /// <summary>
-        /// Add a new builder for the nodes with a custom tag to the subnodes tree 
+        /// Add a new builder for the nodes with a 'details' tag to the aside tree
         /// </summary>
-        public virtual INodeBuilder<TModel> AddCustomBlock(string blockName, Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        public INodeBuilder<TModel> AddDetailsBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
         {
-            var nodeBuilder = new CustomBlockBuilder<TModel>(blockName);
+            var nodeBuilder = new DetailsBlockBuilder<TModel>();
             var result = nodeFunc.Invoke(nodeBuilder);
             _nodes.Add(result);
 
             return this;
         }
 
+        /// <summary>
+        /// Add a new builder for the nodes with a 'dir' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddDirectoryBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new DirectoryBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
 
-        #endregion
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'footer' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFooterBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new FooterBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'form' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFormBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new FormBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'frame' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFrameBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new FrameBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'frameset' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFrameSetBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new FrameSetBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h1' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH1TextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new H1TextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h2' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH2TextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new H2TextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h3' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH3TextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new H3TextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h4' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH4TextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new H4TextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h5' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH5TextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new H5TextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h6' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH6TextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new H6TextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'hr' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddHorizontalLineBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new HorizontalLineBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'iframe' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddIframeBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new IframeBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'img' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddImageBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new ImageBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'input' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddInputBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new InputBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'i' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddItalicTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new ItalicTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'label' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddLabelBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new LabelBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'a' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddLinkBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new LinkBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'li' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddListItemBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new ListItemBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'main' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMainBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new MainBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'map' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMapBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new MapBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'marquee' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMarqueeBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new MarqueeBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'menu' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMenuBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new MenuBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'nav' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddNavigationBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new NavigationBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'ol' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddNumeratedListBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new NumeratedListBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'option' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddOptionElementBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new OptionElementBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'optgroup' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddOptionsGroupBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new OptionsGroupBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'p' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddParagraphBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new ParagraphBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'param' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddParamBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new ParamBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'plaintext' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddPlainTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new PlainTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'q' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddQuoteBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new QuoteBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'ruby' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddRubyBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new RubyBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'rt' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddRubyTitleBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new RubyTitleBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'section' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSectionBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SectionBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'select' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSelectBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SelectBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'bdi' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSeparateTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SeparateTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'small' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSmallTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SmallTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'span' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSpanBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SpanBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 's' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddStrikeTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new StrikeTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'strong' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddStrongTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new StrongTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'sub' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSubTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SubTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'summary' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSummaryBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SummaryBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'sup' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSupTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new SupTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'table' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TableBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tbody' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableBodyBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TableBodyBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'td' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableDataBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TableDataBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tfoot' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableFootBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TableFootBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'thead' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableHeaderBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TableHeaderBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'th' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableHeaderDataBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TableHeaderDataBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tr' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableRowBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TableRowBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tt' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTeletypeTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TeletypeTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'textarea' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTextAreaBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TextAreaBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'bdo' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTextDirectionBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new TextDirectionBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'u' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddUnderlineTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new UnderlineTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'ul' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddUnorderedListBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new UnorderedListBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'var' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddVariableTextBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new VariableTextBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'video' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddVideoBlock(Func<INodeBuilder<TModel>, INodeBuilder<TModel>> nodeFunc)
+        {
+            var nodeBuilder = new VideoBlockBuilder<TModel>();
+            var result = nodeFunc.Invoke(nodeBuilder);
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        #endregion Add Blocks
 
         public virtual INode<TModel> GetResult()
         {

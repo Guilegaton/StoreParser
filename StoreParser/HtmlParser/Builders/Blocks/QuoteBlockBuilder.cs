@@ -18,7 +18,7 @@ namespace HtmlParser.Builders.Blocks
         {
             _node = new Node<TModel>
             {
-                Name = "blockquote"
+                Name = "q"
             };
             _nodes = new List<INodeBuilder<TModel>>();
         }
