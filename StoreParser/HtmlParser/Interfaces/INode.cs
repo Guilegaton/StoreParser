@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace HtmlParser.Interfaces
+namespace TestConsole
 {
     public interface INode<TModel> : ICloneable
     {
@@ -12,9 +12,16 @@ namespace HtmlParser.Interfaces
         Dictionary<string, string> Attributes { get; set; }
         IElement Element { get; set; }
         string Name { get; set; }
-        Expression<Func<TModel, object>> Property { get; set; }
+        Expression Property { get; set; }
         List<INode<TModel>> SubNodes { get; set; }
 
         #endregion Public Properties
+
+        #region Public Methods
+
+        MemberExpression GetMemberExpression();
+
+        #endregion Public Methods
+
     }
 }
