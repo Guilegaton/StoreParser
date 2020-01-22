@@ -10,7 +10,7 @@ namespace HtmlParser.Builders.Blocks
 
         public TextAreaBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "textarea"
             };

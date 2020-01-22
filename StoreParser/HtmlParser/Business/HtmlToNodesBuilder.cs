@@ -1,18 +1,13 @@
 ﻿using AngleSharp;
 using AngleSharp.Dom;
-using AngleSharp.Html.Parser;
+using HtmlParser.Interfaces;
+using HtmlParser.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using TestConsole.BlockBuilders;
-using TestConsole.BlockBuilders.Blocks;
-using TestConsole.Interfaces;
 
-namespace TestConsole
+namespace HtmlParser
 {
     public static class HtmlToNodesBuilder<TModel> where TModel : class, new()
     {
@@ -20,7 +15,7 @@ namespace TestConsole
         {
             var result = new List<INode<TModel>>();
             var config = Configuration.Default;
-            var document = new HtmlParser().ParseDocument(html);
+            var document = new AngleSharp.Html.Parser.HtmlParser().ParseDocument(html);
             foreach (IElement item in document.ChildNodes[0].ChildNodes[1].ChildNodes.Where(node => node.NodeName != "#text"))
             {
                 result.Add(GetNode(item));

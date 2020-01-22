@@ -10,7 +10,7 @@ namespace HtmlParser.Builders.Blocks
 
         public H1TextBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "h1"
             };

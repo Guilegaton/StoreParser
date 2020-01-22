@@ -10,7 +10,7 @@ namespace HtmlParser.Builders.Blocks
 
         public VariableTextBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "var"
             };

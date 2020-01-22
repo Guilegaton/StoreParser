@@ -10,7 +10,7 @@ namespace HtmlParser.Builders.Blocks
 
         public TableRowBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "tr"
             };

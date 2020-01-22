@@ -16,7 +16,7 @@ namespace HtmlParser.Builders.Blocks
 
         public AreaBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "area"
             };

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace TestConsole
+namespace HtmlParser.Interfaces
 {
     public interface INode<TModel> : ICloneable
     {

@@ -16,7 +16,7 @@ namespace HtmlParser.Builders.Blocks
 
         public AudioBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "audio"
             };

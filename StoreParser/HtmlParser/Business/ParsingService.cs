@@ -1,10 +1,9 @@
-﻿using AngleSharp.Dom;
+﻿using HtmlParser.Interfaces;
 using System;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace TestConsole
+namespace HtmlParser.Business
 {
     public class ParsingService<TModel> where TModel : class, new()
     {

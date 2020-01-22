@@ -1,11 +1,9 @@
 ﻿using AngleSharp.Dom;
-using System;
+using HtmlParser.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TestConsole
+namespace HtmlParser.Business
 {
     class SearchService
     {

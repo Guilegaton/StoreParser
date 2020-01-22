@@ -16,7 +16,7 @@ namespace HtmlParser.Builders.Blocks
 
         public AddressBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "address"
             };

@@ -14,7 +14,7 @@ namespace HtmlParser.Builders.Blocks
 
         public AbbreviationBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "abbr"
             };

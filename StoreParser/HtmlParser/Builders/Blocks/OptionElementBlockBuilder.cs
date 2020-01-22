@@ -10,7 +10,7 @@ namespace HtmlParser.Builders.Blocks
 
         public OptionElementBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "option"
             };

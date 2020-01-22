@@ -16,7 +16,7 @@ namespace HtmlParser.Builders.Blocks
 
         public AcronymBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "acronym"
             };

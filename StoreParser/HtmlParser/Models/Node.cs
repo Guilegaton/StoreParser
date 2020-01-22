@@ -1,9 +1,10 @@
 ﻿using AngleSharp.Dom;
+using HtmlParser.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace TestConsole
+namespace HtmlParser.Models
 {
     public abstract class Node<TModel> : INode<TModel> where TModel : class, new()
     {

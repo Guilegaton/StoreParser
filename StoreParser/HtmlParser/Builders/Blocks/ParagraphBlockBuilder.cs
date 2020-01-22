@@ -16,7 +16,7 @@ namespace HtmlParser.Builders
 
         public ParagraphBlockBuilder()
         {
-            _node = new Node<TModel> 
+            _node = new BuilderNode<TModel> 
             { 
                 Name = "p"
             };

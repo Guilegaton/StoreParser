@@ -10,7 +10,7 @@ namespace HtmlParser.Builders.Blocks
 
         public VideoBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "video"
             };

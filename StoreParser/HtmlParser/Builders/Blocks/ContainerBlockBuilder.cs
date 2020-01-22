@@ -19,7 +19,7 @@ namespace HtmlParser.Builders
 
         public ContainerBlockBuilder()
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = "div"
             };

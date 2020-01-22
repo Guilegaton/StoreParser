@@ -10,7 +10,7 @@ namespace HtmlParser.Builders
 
         public CustomBlockBuilder(string blockName)
         {
-            _node = new Node<TModel>
+            _node = new BuilderNode<TModel>
             {
                 Name = blockName
             };

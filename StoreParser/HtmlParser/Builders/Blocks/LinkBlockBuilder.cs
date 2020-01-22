@@ -16,7 +16,7 @@ namespace HtmlParser.Builders
 
         public LinkBlockBuilder()
         {
-            _node = new Node<TModel> 
+            _node = new BuilderNode<TModel> 
             {
                 Name = "a"  
             };
