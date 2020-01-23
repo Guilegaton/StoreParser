@@ -9,6 +9,11 @@ namespace HtmlParser.Business
     {
         #region Public Methods
 
+        /// <summary>
+        /// Convert nodes to models
+        /// </summary>
+        /// <param name="node">The Node that was returned from SearchService</param>
+        /// <returns></returns>
         public static TModel Parse(INode<TModel> node)
         {
             var model = new TModel();

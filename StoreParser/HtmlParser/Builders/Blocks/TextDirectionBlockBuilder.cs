@@ -7,9 +7,7 @@ namespace HtmlParser.Builders.Blocks
     /// <summary>
     /// Builder for nodes with 'bdo' tag
     /// </summary>
-    /// <typeparam name="TModel">
-    /// Model, that contains only primitive properties (string, number etc.)
-    /// </typeparam>
+    /// <typeparam name="TModel">Model type for "HTML to Models" convert</typeparam>
     public class TextDirectionBlockBuilder<TModel> : BaseBlockBuilder<TModel>, INodeBuilder<TModel> where TModel : class, new()
     {
         #region Public Constructors

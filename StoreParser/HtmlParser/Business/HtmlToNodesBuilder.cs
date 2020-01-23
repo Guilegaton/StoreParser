@@ -2,7 +2,6 @@
 using AngleSharp.Dom;
 using HtmlParser.Interfaces;
 using HtmlParser.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,6 +10,15 @@ namespace HtmlParser
 {
     public static class HtmlToNodesBuilder<TModel> where TModel : class, new()
     {
+        /// <summary>
+        /// Get Nodes from HTML template
+        /// </summary>
+        /// <param name="html">
+        /// HTML template that contains a representation for search models. 
+        /// You need to add attribute "@@model" with value "[property invocation chain]" to tag that contains a value for model property.
+        /// (e.g. "@@model='SubTitle.Text'" where "SubTitle" is a class that contains property "Text") 
+        /// </param>
+        /// <returns></returns>
         public static IEnumerable<INode<TModel>> ConvertHtmlToNodes(string html)
         {
             var result = new List<INode<TModel>>();
@@ -75,7 +83,5 @@ namespace HtmlParser
 
             return lastMember;
         }
-
-
     }
 }

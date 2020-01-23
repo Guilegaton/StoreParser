@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace HtmlParser.Builders.Blocks
 {
+    /// <summary>
+    /// Builder for nodes with 'optgroup' tag
+    /// </summary>
+    /// <typeparam name="TModel">Model type for "HTML to Models" convert</typeparam>
     public class OptionsGroupBlockBuilder<TModel> : BaseBlockBuilder<TModel>, INodeBuilder<TModel> where TModel : class, new()
     {
         #region Public Constructors
