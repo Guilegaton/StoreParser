@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace HtmlParser.Business
 {
-    class SearchService
+    public static class SearchService
     {
         public static IEnumerable<INode<TModel>> SearchBlock<TModel>(INode document, INode<TModel> node) where TModel : class, new()
         {
