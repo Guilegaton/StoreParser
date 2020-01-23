@@ -77,14 +77,5 @@ namespace HtmlParser
         }
 
 
-        private static object GetSubProperty(TModel model, Func<TModel, object> func, string propName) 
-        {
-            var preValue = func.Invoke(model);
-            if (preValue.GetType().GetProperties().All(prop => prop.Name != propName))
-            {
-                throw new Exception($"{typeof(TModel).ToString()} does not contain '{propName}' property.");
-            }
-            return preValue.GetType().GetProperty(propName).GetValue(preValue);
-        }
     }
 }
