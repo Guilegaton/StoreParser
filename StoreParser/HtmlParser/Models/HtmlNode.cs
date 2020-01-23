@@ -36,7 +36,7 @@ namespace HtmlParser.Models
 
         public override MemberExpression GetMemberExpression()
         {
-            return (this.Property as Expression<Func<TModel, object>>).Body as MemberExpression;
+            return this.Property as MemberExpression;
         }
 
         #endregion Public Methods
