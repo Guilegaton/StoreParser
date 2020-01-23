@@ -1,6 +1,6 @@
-﻿using HtmlParser.Interfaces;
+﻿using HtmlParser.Extensions;
+using HtmlParser.Interfaces;
 using System;
-using System.Linq.Expressions;
 using System.Reflection;
 
 namespace HtmlParser.Business
@@ -40,15 +40,14 @@ namespace HtmlParser.Business
         {
             if (node.Property != null)
             {
-                var property = (node.Property as MemberExpression) ?? ((node.Property as Expression<Func<TModel, object>>).Body as MemberExpression);
+                var property = node.GetMemberExpression();
                 if (property != null &&
                     property.Member is PropertyInfo propInfo)
                 {
                     var value = Convert.ChangeType(node.Element.TextContent.Trim(), propInfo.PropertyType);
                     if (value != null)
                     {
-                        //propInfo.SetValue(model, value);
-                        model.Set(node.GetMemberExpression() , value);
+                        model.Set(property , value);
                     }
                 }
             }
@@ -56,43 +55,7 @@ namespace HtmlParser.Business
             return model;
         }
 
-
-
         #endregion Private Methods
 
-    }
-
-    public static class LambdaExtensions
-    {
-
-        public static TModel Set<TModel, TValue>(this TModel model, MemberExpression mex, TValue value)
-        {
-
-            if (mex == null) throw new ArgumentException();
-
-            var pi = mex.Member as PropertyInfo;
-            if (pi == null) throw new ArgumentException();
-
-            object target = model.GetTarget(mex.Expression);
-            pi.SetValue(target, value, null);
-            return model;
-        }
-
-        private static object GetTarget(this object model, Expression expr)
-        {
-            switch (expr.NodeType)
-            {
-                case ExpressionType.Parameter:
-                    return model;
-                case ExpressionType.MemberAccess:
-                    MemberExpression mex = (MemberExpression)expr;
-                    PropertyInfo pi = mex.Member as PropertyInfo;
-                    if (pi == null) throw new ArgumentException();
-                    object target = model.GetTarget(mex.Expression);
-                    return pi.GetValue(target, null);
-                default:
-                    throw new InvalidOperationException();
-            }
-        }
     }
 }
