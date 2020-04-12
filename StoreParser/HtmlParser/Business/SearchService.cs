@@ -57,7 +57,7 @@ namespace HtmlParser.Business
 
         public static INode<TModel> ContainsThisBlocks<TModel>(IElement element, INode<TModel> node)
         {
-            if(element?.TagName?.ToLower() == node.Name && 
+            if (element?.TagName?.ToLower() == node.Name && 
                (!node.Attributes.Any() || node.Attributes.All(pair => element.Attributes.Any(attr => attr.Name == pair.Key && 
                                                                                                      attr.Value == pair.Value))))
             {
@@ -68,7 +68,7 @@ namespace HtmlParser.Business
                 }
                 var pairs = new List<KeyValuePair<IElement, INode<TModel>>>();
                 var children = new List<IElement>(element.Children);
-                foreach (var subNode in node.SubNodes.OrderByDescending(subNode => subNode.Attributes.Count))
+                foreach (var subNode in node.SubNodes)
                 {
                     var elem = children.FirstOrDefault(el => el.TagName.ToLower() == subNode.Name && 
                                                              subNode.Attributes.All(pair => el.Attributes.Any(attr => attr.Name.ToLower() == pair.Key &&

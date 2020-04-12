@@ -20,6 +20,861 @@ namespace HtmlParser.Builders
 
         #region Add Blocks
 
+        #region Without Parameters
+
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'abbr' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddAbbreviationBlock()
+        {
+            var result = new AbbreviationBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'acronym' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddAcronymBlock()
+        {
+            var result = new AcronymBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'address' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddAddressBlock()
+        {
+            var result = new AddressBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'applet' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddAppletBlock()
+        {
+            var result = new AppletBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'area' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddAreaBlock()
+        {
+            var result = new AppletBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'article' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddArticleBlock()
+        {
+            var result =  new ArticleBlockContainer<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'aside' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddAsideBlock()
+        {
+            var result =  new AsideBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'audio' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddAudioBlock()
+        {
+            var result =  new AudioBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'body' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddBodyBlock()
+        {
+            var result =  new BodyBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'b' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddBoldTextBlock()
+        {
+            var result =  new BoldTextBlockBuilder<TModel>();
+            
+            _nodes.Add(result);
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'button' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddButtonBlock()
+        {
+            var result =  new ButtonBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'canvas' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddCanvasBlock()
+        {
+            var result =  new CanvasBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'caption' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddCaptionBlock()
+        {
+            var result =  new CaptionBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'center' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddCentredTextBlock()
+        {
+            var result =  new CentredTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'cite' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddCiteTextBlock()
+        {
+            var result =  new CiteTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'code' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddCodeTextBlock()
+        {
+            var result =  new CodeTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'comment' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddCommentBlock()
+        {
+            var result =  new CommentBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'div' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddContainerBlock()
+        {
+            var result =  new ContainerBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'datalist' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddDatalistBlock()
+        {
+            var result =  new DatalistBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'details' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddDetailsBlock()
+        {
+            var result =  new DetailsBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'dir' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddDirectoryBlock()
+        {
+            var result =  new DirectoryBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'footer' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFooterBlock()
+        {
+            var result =  new FooterBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'form' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFormBlock()
+        {
+            var result =  new FormBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'frame' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFrameBlock()
+        {
+            var result =  new FrameBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'frameset' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddFrameSetBlock()
+        {
+            var result =  new FrameSetBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h1' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH1TextBlock()
+        {
+            var result =  new H1TextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h2' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH2TextBlock()
+        {
+            var result =  new H2TextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h3' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH3TextBlock()
+        {
+            var result =  new H3TextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h4' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH4TextBlock()
+        {
+            var result =  new H4TextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h5' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH5TextBlock()
+        {
+            var result =  new H5TextBlockBuilder<TModel>();
+            
+            _nodes.Add(result);
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'h6' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddH6TextBlock()
+        {
+            var result =  new H6TextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'hr' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddHorizontalLineBlock()
+        {
+            var result =  new HorizontalLineBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'iframe' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddIframeBlock()
+        {
+            var result =  new IframeBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'img' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddImageBlock()
+        {
+            var result =  new ImageBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'input' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddInputBlock()
+        {
+            var result =  new InputBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'i' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddItalicTextBlock()
+        {
+            var result =  new ItalicTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'label' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddLabelBlock()
+        {
+            var result =  new LabelBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'a' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddLinkBlock()
+        {
+            var result =  new LinkBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'li' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddListItemBlock()
+        {
+            var result =  new ListItemBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'main' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMainBlock()
+        {
+            var result =  new MainBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'map' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMapBlock()
+        {
+            var result =  new MapBlockBuilder<TModel>();
+            
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'marquee' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMarqueeBlock()
+        {
+            var result =  new MarqueeBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'menu' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddMenuBlock()
+        {
+            var result =  new MenuBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'nav' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddNavigationBlock()
+        {
+            var result =  new NavigationBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'ol' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddNumeratedListBlock()
+        {
+            var result =  new NumeratedListBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'option' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddOptionElementBlock()
+        {
+            var result =  new OptionElementBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'optgroup' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddOptionsGroupBlock()
+        {
+            var result =  new OptionsGroupBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'p' tag to the subnodes tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddParagraphBlock()
+        {
+            var result =  new ParagraphBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'param' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddParamBlock()
+        {
+            var result =  new ParamBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'plaintext' tag to the aside tree
+        /// </summary>
+        public INodeBuilder<TModel> AddPlainTextBlock()
+        {
+            var result =  new PlainTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'q' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddQuoteBlock()
+        {
+            var result =  new QuoteBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'ruby' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddRubyBlock()
+        {
+            var result =  new RubyBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'rt' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddRubyTitleBlock()
+        {
+            var result =  new RubyTitleBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'section' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSectionBlock()
+        {
+            var result =  new SectionBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'select' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSelectBlock()
+        {
+            var result =  new SelectBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'bdi' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSeparateTextBlock()
+        {
+            var result =  new SeparateTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'small' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSmallTextBlock()
+        {
+            var result =  new SmallTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'span' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSpanBlock()
+        {
+            var result =  new SpanBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 's' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddStrikeTextBlock()
+        {
+            var result =  new StrikeTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'strong' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddStrongTextBlock()
+        {
+            var result =  new StrongTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'sub' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSubTextBlock()
+        {
+            var result =  new SubTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'summary' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSummaryBlock()
+        {
+            var result =  new SummaryBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'sup' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddSupTextBlock()
+        {
+            var result =  new SupTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'table' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableBlock()
+        {
+            var result =  new TableBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tbody' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableBodyBlock()
+        {
+            var result =  new TableBodyBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'td' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableDataBlock()
+        {
+            var result =  new TableDataBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tfoot' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableFootBlock()
+        {
+            var result =  new TableFootBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'thead' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableHeaderBlock()
+        {
+            var result =  new TableHeaderBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'th' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableHeaderDataBlock()
+        {
+            var result =  new TableHeaderDataBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tr' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTableRowBlock()
+        {
+            var result =  new TableRowBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'tt' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTeletypeTextBlock()
+        {
+            var result =  new TeletypeTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'textarea' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTextAreaBlock()
+        {
+            var result =  new TextAreaBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'bdo' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddTextDirectionBlock()
+        {
+            var result =  new TextDirectionBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'u' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddUnderlineTextBlock()
+        {
+            var result =  new UnderlineTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'ul' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddUnorderedListBlock()
+        {
+            var result =  new UnorderedListBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'var' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddVariableTextBlock()
+        {
+            var result =  new VariableTextBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Add a new builder for the nodes with a 'video' tag to the aside tree
+        /// </summary>
+        public virtual INodeBuilder<TModel> AddVideoBlock()
+        {
+            var result =  new VideoBlockBuilder<TModel>();
+            _nodes.Add(result);
+
+            return this;
+        }
+
+        #endregion Without Parameters
+
+        #region With Parameters
+
         /// <summary>
         /// Add a new builder for the nodes with a 'abbr' tag to the subnodes tree
         /// </summary>
@@ -955,6 +1810,8 @@ namespace HtmlParser.Builders
 
             return this;
         }
+
+        #endregion With Parameters
 
         #endregion Add Blocks
 
